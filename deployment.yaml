@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sampleloginapplication
+  labels:
+    name: deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: sampleapppod
+  template:
+    metadata:
+      name: sampleapplication-pod
+      labels:
+        name: sampleapppod
+    spec:
+      containers: 
+        - name: sampleapplication
+          image: umarmukthar/loginpageapplication:12
+          ports:
+            - containerPort: 3000
+        
+
+
+  
+
+
