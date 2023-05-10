@@ -16,11 +16,5 @@ pipeline{
                 sh 'docker push umarmukthar/loginpageapplication:${BUILD_NUMBER}'
             }
         }
-
-        stage('clone and update the deployment file'){
-            steps{
-                sh 
-            }
-        }
     }
 }
