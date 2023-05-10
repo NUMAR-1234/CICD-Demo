@@ -2,7 +2,10 @@ pipeline{
     agent any
 
     stages{
-        stage('Build')
-        sh 'docker build -t loginpageapplication:latest '
+        stage('Build'){
+            steps{
+              sh 'docker build -t loginpageapplication:latest '
+            }
+        }
     }
 }
