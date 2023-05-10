@@ -5,14 +5,14 @@ pipeline{
         stage('Build'){
             steps{
               sh 'pwd'
-              sh 'docker build -t loginpageapplication:latest .'
+              sh 'docker build -t loginpageapplication:${BUILD_NUMBER} .'
             }
         }
 
         stage('Push the Docker Image'){
             steps{
-                sh 'docker tag loginpageapplication umarmukthar/loginpageapplication'
-                sh 'docker push umarmukthar/loginpageapplication'
+                sh 'docker tag loginpageapplication:${BUILD_NUMBER} umarmukthar/loginpageapplication:${BUILD_NUMBER}'
+                sh 'docker push umarmukthar/loginpageapplication:${BUILD_NUMBER}'
             }
         }
     }
