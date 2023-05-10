@@ -4,7 +4,7 @@ pipeline{
     stages{
         stage('Build'){
             steps{
-              sh 'docker build -t loginpageapplication:latest '
+              sh 'docker build -t loginpageapplication:latest .'
             }
         }
     }
