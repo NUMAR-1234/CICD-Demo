@@ -5,11 +5,11 @@ pipeline{
         stage('Build'){
             steps{
               sh 'pwd'
-              git 'https://github.com/NUMAR-1234/CICD-Demo.git'
+              sh 'git clone https://github.com/NUMAR-1234/CICD-Demo.git'
+              sh 'cd CICD-Demo'
               sh 'docker build -t loginpageapplication:${BUILD_NUMBER} .'
             }
         }
-
         stage('Push the Docker Image'){
             steps{
                 sh 'docker tag loginpageapplication:${BUILD_NUMBER} umarmukthar/loginpageapplication:${BUILD_NUMBER}'
