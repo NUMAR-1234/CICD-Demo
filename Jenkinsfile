@@ -5,6 +5,7 @@ pipeline{
             steps{
                 sh 'pwd'
                 sh 'dependency-check/bin/dependency-check.sh --scan \ --out /report'
+
             }
         }    
         stage('Build'){
