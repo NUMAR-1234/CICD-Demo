@@ -16,4 +16,4 @@ fi
 # Make sure we are using the latest version
 docker pull owasp/dependency-check
 
-docker run owasp/dependency-check --scan package.json --format "ALL" --project "sample" --out /report
+docker run owasp/dependency-check --scan / --format "ALL" --project "sample" --out /report
