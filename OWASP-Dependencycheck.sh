@@ -19,4 +19,4 @@ pwd
 ls -la
 docker pull owasp/dependency-check
 
-docker run owasp/dependency-check --scan /CICD-Demo --format "ALL" --project "sample" --out /report
+docker run owasp/dependency-check --scan C:/Users/sunda/.jenkins/workspace/CICD pipeline for GitOps/CICD-Demo --format "ALL" --project "sample" --out /report
