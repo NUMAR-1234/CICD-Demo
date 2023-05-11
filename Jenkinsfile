@@ -17,5 +17,11 @@ pipeline{
                 sh 'docker push umarmukthar/loginpageapplication:${BUILD_NUMBER}'
             }
         }
+        stage('Run the application'){
+            steps{
+                sh 'kubectl apply -f deployment.yaml'
+                sh 'minikube service sampleloginapplication-service'
+            }
+        }
     }
 }
