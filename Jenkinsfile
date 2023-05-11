@@ -20,8 +20,9 @@ pipeline{
         stage('Run the application'){
             steps{
                 sh 'kubectl apply -f deployment.yaml'
-                sh 'minikube service sampleloginapplication-service'
             }
         }
     }
 }
+
+"a1b2c33d4e5f6g7h8i9jakblc"
