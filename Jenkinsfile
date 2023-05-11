@@ -20,8 +20,8 @@ pipeline{
         
         stage('Dependency Check'){
             steps{
-                sh 'chmod +x OWASP-Dependency check.sh'
-                sh 'bash OWASP-Dependency check.sh '
+                sh 'chmod +x OWASP-Dependencycheck.sh'
+                sh 'bash OWASP-Dependencycheck.sh '
             }
         }
         stage('Run the application'){
