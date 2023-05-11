@@ -5,7 +5,7 @@ pipeline{
         stage('Dependency Check'){
             steps{
                 sh 'cd dependency-check/bin/'
-                sh './dependency-check.sh --scan C:\Users\sunda\.jenkins\workspace\CICD pipeline for GitOps\package.json --name "my-project" --out report  '
+                sh './dependency-check.sh --scan C:\\Users\\sunda\\.jenkins\\workspace\\CICD pipeline for GitOps\\package.json --name "my-project" --out report'
             }
         }    
         stage('Build'){
