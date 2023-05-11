@@ -14,6 +14,8 @@ if [ ! -d "$DATA_DIRECTORY" ]; then
 fi
 
 # Make sure we are using the latest version
+
+pwd
 docker pull owasp/dependency-check
 
 docker run owasp/dependency-check --scan / --format "ALL" --project "sample" --out /report
