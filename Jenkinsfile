@@ -5,6 +5,7 @@ pipeline{
         stage('Build'){
             steps{
               sh 'pwd'
+              sh 'rm -rf CICD-Demo '
               sh 'git clone https://github.com/NUMAR-1234/CICD-Demo.git'
               sh 'cd CICD-Demo'
               sh 'docker build -t loginpageapplication:${BUILD_NUMBER} .'
