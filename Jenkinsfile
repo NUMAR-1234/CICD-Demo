@@ -5,7 +5,7 @@ pipeline{
         stage('Dependency Check'){
             steps{
                 sh 'chmod +x OWASP-Dependencycheck.sh'
-                sh 'bash OWASP-Dependencycheck.sh '
+                sh './dependency-check.sh --scan /package.json --name "my-project" --out report  '
             }
         }    
         stage('Build'){
