@@ -16,6 +16,7 @@ fi
 # Make sure we are using the latest version
 
 pwd
+ls -la
 docker pull owasp/dependency-check
 
 docker run owasp/dependency-check --scan / --format "ALL" --project "sample" --out /report
