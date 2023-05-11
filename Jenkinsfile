@@ -4,7 +4,7 @@ pipeline{
         stage('Dependency Check'){
             steps{
                 sh 'pwd'
-                sh 'dependency-check/bin/dependency-check.sh --version'
+                sh 'dependency-check/bin/dependency-check.sh --scan package.json --out /report'
             }
         }    
         stage('Build'){
