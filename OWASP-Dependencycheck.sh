@@ -17,7 +17,7 @@ fi
 docker pull owasp/dependency-check
 
 docker run owasp/dependency-check \
-    --scan /package.json \
+    --scan / \
     --format "ALL" \
     --project "My OWASP Dependency Check Project" \
     --out /report
