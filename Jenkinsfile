@@ -1,5 +1,6 @@
 pipeline{
     agent any
+        stages{
         stage('Dependency Check'){
             steps{
                 sh 'cd dependency-check/'
