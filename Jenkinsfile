@@ -4,7 +4,7 @@ pipeline{
         stage('Dependency Check'){
             steps{
                 sh 'pwd'
-                sh 'dependency-check/bin/dependency-check.sh --scan CICD-Demo\ --out /report'
+                sh 'dependency-check/bin/dependency-check.sh --scan CICD-Demo --out /report'
 
             }
         }    
