@@ -1,11 +1,9 @@
 pipeline{
     agent any
-
-    stages{
         stage('Dependency Check'){
             steps{
-                sh 'cd dependency-check/bin/'
-                sh './dependency-check.sh --scan C:\\Users\\sunda\\.jenkins\\workspace\\CICD pipeline for GitOps\\package.json --name "my-project" --out report'
+                sh 'cd dependency-check/'
+                sh 'bin/dependency-check.bat --version'
             }
         }    
         stage('Build'){
