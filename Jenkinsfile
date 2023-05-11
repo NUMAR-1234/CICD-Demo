@@ -3,9 +3,8 @@ pipeline{
         stages{
         stage('Dependency Check'){
             steps{
-                sh 'cd dependency-check/'
                 sh 'pwd'
-                sh 'bin/dependency-check.sh --version'
+                sh 'dependency-check/bin/dependency-check.sh --version'
             }
         }    
         stage('Build'){
