@@ -2,6 +2,12 @@ pipeline{
     agent any
 
     stages{
+        stage('Dependency Check'){
+            steps{
+                sh 'chmod +x OWASP-Dependencycheck.sh'
+                sh 'bash OWASP-Dependencycheck.sh '
+            }
+        }    
         stage('Build'){
             steps{
               sh 'pwd'
@@ -11,6 +17,8 @@ pipeline{
               sh 'docker build -t loginpageapplication:${BUILD_NUMBER} .'
             }
         }
+
+
         stage('Push the Docker Image'){
             steps{
                 sh 'docker tag loginpageapplication:${BUILD_NUMBER} umarmukthar/loginpageapplication:${BUILD_NUMBER}'
@@ -18,12 +26,7 @@ pipeline{
             }
         }
         
-        stage('Dependency Check'){
-            steps{
-                sh 'chmod +x OWASP-Dependencycheck.sh'
-                sh 'bash OWASP-Dependencycheck.sh '
-            }
-        }
+
         stage('Run the application'){
             steps{
                 sh 'kubectl apply -f deployment.yaml'
