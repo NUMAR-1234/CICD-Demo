@@ -17,6 +17,13 @@ pipeline{
                 sh 'docker push umarmukthar/loginpageapplication:${BUILD_NUMBER}'
             }
         }
+        
+        stage('Dependency Check'){
+            steps{
+                sh 'chmod +x OWASP-Dependency check.sh'
+                sh 'bash OWASP-Dependency check.sh '
+            }
+        }
         stage('Run the application'){
             steps{
                 sh 'kubectl apply -f deployment.yaml'
@@ -25,4 +32,3 @@ pipeline{
     }
 }
 
-apiKey= "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"
