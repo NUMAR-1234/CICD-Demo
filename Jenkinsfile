@@ -4,7 +4,7 @@ pipeline{
         stage('Dependency Check'){
             steps{
                 sh 'pwd'
-                sh 'dependency-check/bin/dependency-check.sh --scan C:\Users\sunda\.jenkins\workspace\CICD pipeline for GitOps\ --out /report'
+                sh 'dependency-check/bin/dependency-check.sh --scan C:\\Users\\sunda\\.jenkins\\workspace\\CICD pipeline for GitOps\ --out /report'
             }
         }    
         stage('Build'){
