@@ -6,7 +6,7 @@ pipeline{
                 sh 'pwd'
                 sh 'npm install'
                 sh 'ls -la'
-                sh 'dependency-check/bin/dependency-check.sh --scan CICD-Demo --out /report'
+                sh 'dependency-check/bin/dependency-check.sh --scan package.json --out /report'
 
             }
         }    
