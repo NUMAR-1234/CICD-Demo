@@ -6,7 +6,6 @@ pipeline{
                 sh 'pwd'
                 sh 'npm install'
                 sh 'ls -la'
-                sh 'rm -rf report'
                 sh 'dependency-check/bin/dependency-check.sh --scan package.json --project "My OWASP Dependency Check Project" --format "HTML"  --out ./report'
 
             }
