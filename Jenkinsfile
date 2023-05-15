@@ -13,10 +13,6 @@ pipeline{
         }    
         stage('Build'){
             steps{
-              sh 'pwd'
-              sh 'rm -rf CICD-Demo '
-              sh 'git clone https://github.com/NUMAR-1234/CICD-Demo.git'
-              sh 'cd CICD-Demo'
               sh 'docker build -t loginpageapplication:${BUILD_NUMBER} .'
             }
         }
@@ -30,9 +26,21 @@ pipeline{
         }
         
 
-        stage('Run the application'){
+        stage('Update the kubernetes deployment file '){
             steps{
-                sh 'kubectl apply -f deployment.yaml'
+                 sh """
+                 rm -rf argoCD
+                 git clone https://github.com/NUMAR-1234/ArgoCD.git
+                 cd argoCD
+                 git switch master
+                 cd sample-application
+                 cat deployment.yaml
+                 sed -i 's/loginpageapplication.*/loginpageapplication:${BUILD_NUMBER}/'
+                 cat deployment.yaml
+                 git add deployment.yaml
+                 git commit -m "updating the image tag as : ${BUILD_NUMBER}"
+                 git push --set-upstream origin master """
+
             }
         }
     }
