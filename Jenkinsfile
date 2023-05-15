@@ -34,7 +34,7 @@ pipeline{
                  git switch master
                  cd sample-application
                  cat deployment.yaml
-                 sed -i 's/loginpageapplication.*/loginpageapplication:${BUILD_NUMBER}/ deployment.yaml'
+                 sed -i 's/loginpageapplication.*/loginpageapplication:${BUILD_NUMBER}/' deployment.yaml
                  cat deployment.yaml
                  git add deployment.yaml
                  git commit -m "updating the image tag as : ${BUILD_NUMBER}"
