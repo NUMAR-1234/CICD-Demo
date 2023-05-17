@@ -6,7 +6,7 @@ pipeline{
                 sh 'pwd'
                 sh 'npm install'
                 sh 'ls -la'
-                sh 'dependency-check/bin/dependency-check.sh --scan package.json --project "My OWASP Dependency Check Project" --format "HTML"  --out ./report'
+                sh 'dependency-check/bin/dependency-check.sh --scan dependency-check --project "My OWASP Dependency Check Project" --format "HTML"  --out ./report'
             }
         }    
         stage('Build'){
