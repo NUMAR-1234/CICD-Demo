@@ -15,7 +15,12 @@ pipeline{
             }
         }
 
-
+        stage('Scan the docker image'){
+            steps{
+              sh 'docker pull aquasec/trivy:0.18.3'
+              sh 'docker run aquasec/trivy:0.18.3 umarmukthar/loginpageapplication:${BUILD_NUMBER}'
+            }
+        }
         stage('Push the Docker Image'){
             steps{
                 sh 'docker tag loginpageapplication:${BUILD_NUMBER} umarmukthar/loginpageapplication:${BUILD_NUMBER}'
