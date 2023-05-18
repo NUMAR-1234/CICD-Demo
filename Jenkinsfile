@@ -18,7 +18,7 @@ pipeline{
         stage('Scan the docker image'){
             steps{
               sh 'docker pull aquasec/trivy:0.18.3'
-              sh 'docker run --rm -v //var/run/docker.sock:/var/run/docker.sock aquasec/trivy:0.18.3 --quiet loginpageapplication:${BUILD_NUMBER}'
+              sh 'docker run --rm -v //var/run/docker.sock:/var/run/docker.sock aquasec/trivy:0.18.3  loginpageapplication:${BUILD_NUMBER}'
             }
         }
         stage('Push the Docker Image'){
