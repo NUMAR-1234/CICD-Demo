@@ -2,10 +2,12 @@ pipeline{
     agent any
         stages{
         stage('Checking git secrets using trufflehog'){
-            sh 'rm Gitsecrets'
-            sh 'docker pull   gesellix/trufflehog'
-            sh 'docker run -t gesellix/trufflehog --json https://github.com/NUMAR-1234/CICD-Demo.git > Gitsecrets'
-            sh 'cat Gitsecrets'
+            steps{
+               sh 'rm Gitsecrets'
+               sh 'docker pull   gesellix/trufflehog'
+               sh 'docker run -t gesellix/trufflehog --json https://github.com/NUMAR-1234/CICD-Demo.git > Gitsecrets'
+               sh 'cat Gitsecrets'
+            }
         }
         stage('Dependency Check'){
             steps{
