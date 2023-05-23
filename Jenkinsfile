@@ -5,7 +5,7 @@ pipeline{
             steps{
                sh 'rm Gitsecrets || true'
                sh 'docker pull   gesellix/trufflehog'
-               sh 'docker run -t gesellix/trufflehog --json https://github.com/NUMAR-1234/CICD-Demo.git > Gitsecrets'
+               sh 'docker run -t gesellix/trufflehog  https://github.com/NUMAR-1234/CICD-Demo.git > Gitsecrets'
                sh 'cat Gitsecrets'
             }
         }
@@ -32,7 +32,7 @@ pipeline{
         stage('Scan the docker image'){
             steps{
               sh 'docker pull aquasec/trivy:0.18.3'
-              sh 'docker run --rm -v //var/run/docker.sock:/var/run/docker.sock aquasec/trivy:0.18.3  loginpageapplication:${BUILD_NUMBER}'
+              sh 'docker run --rm -v //var/run/docker.sock:/var/run/docker.sock aquasec/trivy:0.18.3 --timeout 5m loginpageapplication:${BUILD_NUMBER}'
             }
         }
         
