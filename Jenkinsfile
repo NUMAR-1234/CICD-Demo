@@ -4,6 +4,8 @@ pipeline{
         stage('Checking git secrets using trufflehog'){
             steps{
                sh 'whoami'
+               sh 'sudo systemctl start docker'
+               sh 'sudo systemctl status docker'
                sh 'rm Gitsecrets || true'
                sh 'docker pull   gesellix/trufflehog'
                sh 'docker run -t gesellix/trufflehog  https://github.com/NUMAR-1234/CICD-Demo.git > Gitsecrets'
